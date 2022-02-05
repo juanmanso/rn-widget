@@ -4,6 +4,10 @@
 
 The goal of this app is to spike and test how the development of widgets is using the React Native framework.
 
+## 🎨 Version tested in this branch
+
+Based on the tutorial shared on the [ASAP Developers page](https://www.asapdevelopers.com/how-to-build-widgets-for-a-react-native-app/).
+
 ## 🏃 How to run the app
 
 1. **Run `yarn install`**
