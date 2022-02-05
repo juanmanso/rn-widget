@@ -21,6 +21,7 @@
 		8D0D1E8227AF2AA6008B9D86 /* TestWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D1E7E27AF2AA3008B9D86 /* TestWidget.intentdefinition */; };
 		8D0D1E8327AF2AA6008B9D86 /* TestWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D1E7E27AF2AA3008B9D86 /* TestWidget.intentdefinition */; };
 		8D0D1E8627AF2AA6008B9D86 /* TestWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D0D1E7627AF2AA2008B9D86 /* TestWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8D0D1E8D27AF2D10008B9D86 /* BridgeHeaderCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D1E8C27AF2D0F008B9D86 /* BridgeHeaderCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		8D0D1E7E27AF2AA3008B9D86 /* TestWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TestWidget.intentdefinition; sourceTree = "<group>"; };
 		8D0D1E7F27AF2AA6008B9D86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D0D1E8127AF2AA6008B9D86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D0D1E8B27AF2D0F008B9D86 /* RNWidget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNWidget-Bridging-Header.h"; sourceTree = "<group>"; };
+		8D0D1E8C27AF2D0F008B9D86 /* BridgeHeaderCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeHeaderCreator.swift; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-RNWidget-RNWidgetTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNWidget-RNWidgetTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-RNWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNWidget.debug.xcconfig"; path = "Target Support Files/Pods-RNWidget/Pods-RNWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-RNWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNWidget.release.xcconfig"; path = "Target Support Files/Pods-RNWidget/Pods-RNWidget.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 				8D0D1E7E27AF2AA3008B9D86 /* TestWidget.intentdefinition */,
 				8D0D1E7F27AF2AA6008B9D86 /* Assets.xcassets */,
 				8D0D1E8127AF2AA6008B9D86 /* Info.plist */,
+				8D0D1E8C27AF2D0F008B9D86 /* BridgeHeaderCreator.swift */,
+				8D0D1E8B27AF2D0F008B9D86 /* RNWidget-Bridging-Header.h */,
 			);
 			path = TestWidget;
 			sourceTree = "<group>";
@@ -286,7 +291,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1300;
 					};
 					8D0D1E7527AF2AA2008B9D86 = {
 						CreatedOnToolsVersion = 13.0;
@@ -503,6 +508,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				8D0D1E8327AF2AA6008B9D86 /* TestWidget.intentdefinition in Sources */,
+				8D0D1E8D27AF2D10008B9D86 /* BridgeHeaderCreator.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C97AB639B58BBB4B15BBE30 /* Pods-RNWidget-RNWidgetTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -563,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D0AE47A65C8663E3B452821 /* Pods-RNWidget-RNWidgetTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = RNWidgetTests/Info.plist;
@@ -604,6 +612,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = RNWidget;
+				SWIFT_OBJC_BRIDGING_HEADER = "TestWidget/RNWidget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -630,6 +639,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = RNWidget;
+				SWIFT_OBJC_BRIDGING_HEADER = "TestWidget/RNWidget-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
